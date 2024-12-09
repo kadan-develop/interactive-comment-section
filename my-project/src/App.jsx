@@ -1,9 +1,15 @@
 import React from "react";
+import Card from "./components/Card";
+import data from "../data.json";
 
 function App() {
+  const user = data.comments[0].user.image.png;
+
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello</h1>
+      <div className="container md flex flex-col  space-y-5">
+        <Card user={user} />
+      </div>
     </>
   );
 }
