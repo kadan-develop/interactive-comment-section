@@ -1,20 +1,14 @@
 import React from "react";
 
-function Avatar({ user, lastPosted, text }) {
-  console.log(user);
-
+function Avatar({ content, createdAt, image, username }) {
   return (
-    <div className="">
+    <div className="mx-6">
       <div className="flex gap-3">
-        <img className="w-[32px] h-[32px]" src={user} alt="" />
-        <h3 className="font-medium text-[#334253]">amyrobson</h3>
-        <p className="font-regular text-[#67727E]">1 month ago</p>
+        <img className="w-[32px] h-[32px]" src={image} alt="avatar-img" />
+        <h3 className="font-medium text-[#334253]">{username}</h3>
+        <p className="font-regular text-[#67727E]">{createdAt}</p>
       </div>
-      <p className="font-regular text-[#67727E] ">
-        Impressive! Though it seems the drag feature could be improved. But
-        overall it looks incredible. You've nailed the design and the
-        responsiveness at various breakpoints works really well.
-      </p>
+      <p className="font-regular text-[#67727E] mt-4">{content}</p>
     </div>
   );
 }
