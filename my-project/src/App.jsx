@@ -5,16 +5,16 @@ import Avatar from "./components/Avatar";
 import ButtonReply from "./components/ButtonReply";
 import ButtonsPM from "./components/ButtonsPM";
 import AddComment from "./components/AddComment";
+import ReplyComponent from "./components/ReplyComponent";
 
 function App() {
   const users = data.comments;
+  const test = data.comments[1].replies;
 
   return (
     <>
       <div className="container md flex flex-col  space-y-5">
         {users.map((user) => {
-          console.log(user);
-
           return (
             <>
               <Card>
@@ -28,11 +28,7 @@ function App() {
                 <ButtonReply />
               </Card>
 
-              <Card>
-                <ButtonsPM />
-                <Avatar />
-                <ButtonReply />
-              </Card>
+              {user.replies.length > 0 ? <ReplyComponent users={user} /> : ""}
             </>
           );
         })}
