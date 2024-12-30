@@ -5,10 +5,13 @@ import ButtonReply from "./ButtonReply";
 import ButtonEdit from "./ButtonEdit";
 
 import Avatar from "./Avatar";
+import DeletePopUp from "./DeletePopUp";
 
 export default function ReplyComponent({ users }) {
   console.log(users);
-
+  function handleClick() {
+    console.log("delete");
+  }
   return (
     <>
       <div className="grid grid-row-2 gap-5 justify-end">
@@ -25,7 +28,7 @@ export default function ReplyComponent({ users }) {
                   username={user.user.username}
                 />
                 {user.user.username === "juliusomo" ? (
-                  <ButtonEdit />
+                  <ButtonEdit handleClick={handleClick} />
                 ) : (
                   <ButtonReply />
                 )}
@@ -36,6 +39,7 @@ export default function ReplyComponent({ users }) {
       </div>
 
       <div className="absolute w-[2px] h-[348px] bg-[#E9EBF0] top-[389px] ml-10"></div>
+      {/* <DeletePopUp /> */}
     </>
   );
 }

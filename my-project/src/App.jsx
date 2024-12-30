@@ -6,6 +6,7 @@ import ButtonReply from "./components/ButtonReply";
 import ButtonsPM from "./components/ButtonsPM";
 import AddComment from "./components/AddComment";
 import ReplyComponent from "./components/ReplyComponent";
+import DeletePopUp from "./components/DeletePopUp";
 
 function App() {
   const users = data.comments;
