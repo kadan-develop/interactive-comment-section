@@ -7,8 +7,9 @@ import ButtonEdit from "./ButtonEdit";
 import Avatar from "./Avatar";
 import DeletePopUp from "./DeletePopUp";
 
-export default function ReplyComponent({ users }) {
+export default function ReplyComponent({ users, userReply, comp }) {
   console.log(users);
+
   function handleClick() {
     console.log("delete");
   }
@@ -30,7 +31,7 @@ export default function ReplyComponent({ users }) {
                 {user.user.username === "juliusomo" ? (
                   <ButtonEdit handleClick={handleClick} />
                 ) : (
-                  <ButtonReply />
+                  <ButtonReply userReply={() => userReply(user.id)} />
                 )}
               </SmallCard>
             </>
