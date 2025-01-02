@@ -7,12 +7,9 @@ import ButtonEdit from "./ButtonEdit";
 import Avatar from "./Avatar";
 import DeletePopUp from "./DeletePopUp";
 
-export default function ReplyComponent({ users, userReply, comp }) {
+export default function ReplyComponent({ users }) {
   console.log(users);
 
-  function handleClick() {
-    console.log("delete");
-  }
   return (
     <>
       <div className="grid grid-row-2 gap-5 justify-end">
@@ -29,9 +26,9 @@ export default function ReplyComponent({ users, userReply, comp }) {
                   username={user.user.username}
                 />
                 {user.user.username === "juliusomo" ? (
-                  <ButtonEdit handleClick={handleClick} />
+                  <ButtonEdit />
                 ) : (
-                  <ButtonReply userReply={() => userReply(user.id)} />
+                  <ButtonReply />
                 )}
               </SmallCard>
             </>

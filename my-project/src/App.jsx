@@ -12,32 +12,32 @@ function App() {
   const users = data.comments;
   const test = data.comments[1].replies;
 
-  const [comp, setComp] = useState(null);
+  // const [comp, setComp] = useState(null);
 
-  function userReply(id) {
-    const style = {
-      width: "642px",
-    };
+  // function userReply(id) {
+  //   const style = {
+  //     width: "642px",
+  //   };
 
-    const pickUser = users.filter((user) => user.id === id);
-    const result =
-      pickUser[0]?.replies.length > 0 ? (
-        <Card style={style}>
-          <AddComment userImg={data.currentUser.image.png} btnName={"Reply"} />
-        </Card>
-      ) : (
-        <Card>
-          <AddComment userImg={data.currentUser.image.png} btnName={"Reply"} />
-        </Card>
-      );
+  //   const pickUser = users.filter((user) => user.id === id);
+  //   const result =
+  //     pickUser[0]?.replies.length > 0 ? (
+  //       <Card style={style}>
+  //         <AddComment userImg={data.currentUser.image.png} btnName={"Reply"} />
+  //       </Card>
+  //     ) : (
+  //       <Card>
+  //         <AddComment userImg={data.currentUser.image.png} btnName={"Reply"} />
+  //       </Card>
+  //     );
 
-    setComp(result);
-  }
+  //   setComp(result);
+  // }
 
   return (
     <>
       <div className="container md flex flex-col  space-y-5">
-        {users.map((user) => {
+        {/* {users.map((user) => {
           return (
             <>
               <Card>
@@ -55,24 +55,16 @@ function App() {
                 />
               </Card>
 
-              {user.replies.length === 0 ? comp : ""}
-
-              {user.replies.length > 0 ? (
-                <ReplyComponent
-                  userReply={userReply}
-                  users={user}
-                  comp={comp}
-                />
-              ) : (
-                ""
-              )}
+              {user.replies.length > 0 ? <ReplyComponent users={user} /> : ""}
             </>
           );
         })}
 
         <Card>
-          <AddComment userImg={data.currentUser.image.png} btnName={"Send"} />
-        </Card>
+        </Card> */}
+
+        <Card users={users} />
+        <AddComment userImg={data.currentUser.image.png} btnName={"Send"} />
       </div>
     </>
   );
