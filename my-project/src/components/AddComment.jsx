@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonMain from "./ButtonMain";
 
-export default function AddComment({ userImg, btnName }) {
+export default function AddComment({ userImg, btnName, onAddComment }) {
   return (
     <div className="flex gap-4 w-[730px] h-fit bg-[#fff] p-6 rounded-lg">
       <img className="w-[40px] h-[40px]" src={userImg} alt="" />
@@ -10,7 +10,7 @@ export default function AddComment({ userImg, btnName }) {
         name="comment"
         placeholder="Add Comment..."
       ></textarea>
-      <ButtonMain name={btnName} />
+      <ButtonMain onAddComment={onAddComment} name={btnName} />
     </div>
   );
 }

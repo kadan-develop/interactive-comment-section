@@ -36,7 +36,7 @@ export default function ReplyComponent({ users }) {
         })}
       </div>
 
-      <div className="absolute w-[2px] h-[348px] bg-[#E9EBF0] top-[389px] ml-10"></div>
+      <div className="absolute w-[2px] h-[348px] bg-[#E9EBF0] top-[305px] ml-10"></div>
       {/* <DeletePopUp /> */}
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 
 function Avatar({ content, createdAt, image, username }) {
   return (
-    <div className="w-auto">
+    <div className="">
       <div className="flex gap-3">
         <img className="w-[32px] h-[32px]" src={image} alt="avatar-img" />
         <h3 className="font-medium text-[#334253]">{username}</h3>
