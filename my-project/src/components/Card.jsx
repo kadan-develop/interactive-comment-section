@@ -6,26 +6,20 @@ import ReplyComponent from "./ReplyComponent";
 import AddComment from "./AddComment";
 
 function Card({ mainUser, users }) {
-  // return (
-  //   <div
-  //     style={style}
-  //     className={`relative flex justify-between w-[730px] h-fit bg-[#fff] p-6 rounded-lg`}
-  //   >
-  //     {children}
-  //   </div>
-  // );
-
   const [activeUserId, setActiveUserId] = useState(null);
-
-  console.log(users);
+  const [reply, setReply] = useState("");
 
   function handleClick(id) {
     setActiveUserId(id);
   }
 
   function handleAddComment() {
-    console.log("Add comment");
     setActiveUserId(null);
+  }
+
+  function handleOnChange(e) {
+    console.log(e.target.value);
+    setReply(e.target.value);
   }
 
   return (
@@ -51,6 +45,8 @@ function Card({ mainUser, users }) {
                 userImg={mainUser.image.png}
                 btnName={"Reply"}
                 onAddComment={handleAddComment}
+                handleOnChange={handleOnChange}
+                reply={reply}
               />
             )}
 
