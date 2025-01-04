@@ -4,17 +4,22 @@ import ButtonReply from "./ButtonReply";
 import ButtonsPM from "./ButtonsPM";
 import ReplyComponent from "./ReplyComponent";
 import AddComment from "./AddComment";
+import SmallCard from "./SmallCard";
 
 function Card({ mainUser, users }) {
   const [activeUserId, setActiveUserId] = useState(null);
+  const [mainUserId, setMainUserId] = useState(null);
   const [reply, setReply] = useState("");
 
   function handleClick(id) {
     setActiveUserId(id);
   }
 
-  function handleAddComment() {
-    setActiveUserId(null);
+  function handleAddComment(id) {
+    if (reply.trim() !== "") {
+      setMainUserId(id);
+      setActiveUserId(null);
+    }
   }
 
   function handleOnChange(e) {
@@ -44,11 +49,13 @@ function Card({ mainUser, users }) {
               <AddComment
                 userImg={mainUser.image.png}
                 btnName={"Reply"}
-                onAddComment={handleAddComment}
+                onAddComment={() => handleAddComment(user.id)}
                 handleOnChange={handleOnChange}
                 reply={reply}
               />
             )}
+
+            {mainUserId === user.id && <SmallCard>{reply}</SmallCard>}
 
             {user.replies.length > 0 ? <ReplyComponent users={user} /> : ""}
 
